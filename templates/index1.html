@@ -1,0 +1,208 @@
+
+
+{% extends "base.html" %}                 
+{% block title%} Home Page {% endblock%}
+
+{% block content %} 
+<!DOCTYPE html>
+
+<html>
+   <head>
+
+     <title>Testing my ability to do this thing!</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/3/w3.css">
+    <link rel = "stylesheet" href="{{ url_for('static', filename = 'css/iceland1.css') }}">
+      
+    <style>
+        body{
+            background-color: #ECEAE5; 
+        }
+
+        h2{
+            margin-top: 2%;
+            margin-bottom: 2%;
+        }
+
+        h3{
+            text-align: center; 
+
+            border: 3px solid green;
+
+            height: 160px;
+
+            width: 307px ; 
+
+            margin-right: auto;
+
+            margin-left: auto;
+        }
+        p{
+            color: black;
+            text-align: center; 
+        }
+
+        .center {
+            text-align: center; 
+
+        }
+
+        h2 { 
+            color: black;    
+         }
+
+         .format
+         {
+            
+            width: 30%;
+
+            margin-bottom: 3%;
+            margin-right: auto;
+
+            margin-left: auto;
+
+         }
+         .mySlides
+         {
+            height: 320px;
+            width: 614px;
+         }
+
+         .underimg
+         {
+            height:160px;
+            width: 307px; 
+         }
+
+        img{
+            border: 3px solid green;
+        }  
+        .leftside
+        {
+            float: left; 
+            margin-left: 4%;
+            margin-top: 2%
+        }   
+        .rightside
+        {
+            float :right;
+            margin-right: 10%;
+            margin-top: 2%;
+        }
+
+
+
+    </style>
+    
+    </head> 
+    
+    
+    
+    <body>
+        
+    <div class = "center"> 
+    
+            
+        
+        <p> </p>
+        <p> </p>
+        
+        
+        <h2>Will {{content}} appreciate this?</h2>
+
+    <div class = "leftside">
+        <p>  The following Paragraph should be at the side of an image! <br>
+             Now this is wonderful! <br>
+             {{content}} should and will appreaciate the images below because <br>
+             they are the finest images that can be found in the World! <br>
+             (and also Wallhaven.com)
+         </p>
+
+    </div>
+
+
+    <div class = "rightside">
+        <p> And this part is another paragraph!</p>
+    </div>
+<div class = "format">
+        <section>
+  <img class="mySlides" src="{{url_for('static', filename = 'wallhaven-nrkdem.jpg')}}" style="width:100%">
+  <img class="mySlides" src="{{url_for('static', filename = 'icelandp2.jpg')}}" style="width:100%">
+  <img class="mySlides" src="{{url_for('static', filename = 'wallhaven-83kk62.jpg')}}" style="width:100%">
+  <img class="mySlides" src="{{url_for('static', filename = 'wallhaven-4lvrvr.jpg')}}" style="width:100%">
+  <img class="mySlides" src="{{url_for('static', filename = 'wallhaven-nzlymy.jpg')}}" style="width:100%">
+</section>
+</div>
+
+
+    
+
+
+<script>
+var myIndex = 0;
+carousel();
+
+function carousel() {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+  myIndex++;
+  if (myIndex > x.length) {myIndex = 1}
+  x[myIndex-1].style.display = "block";
+  setTimeout(carousel, 3000);
+}
+</script>
+
+       
+
+
+        <p> </p>
+
+      
+        <div class = "format2">
+       
+        <img src ="{{url_for('static', filename = 'wallhaven-nrkdem.jpg')}}" style="float; width: 18%; height:220px;margin-right: 1%; margin-bottom: .5em;">
+       
+        <img src ="{{url_for('static', filename = 'icelandp2.jpg')}}" style="float; width: 18%; height: 220px;margin-right: 1%; margin-bottom: .5em;" alt = "Iceland"/>
+        
+        <img src ="{{url_for('static', filename = 'wallhaven-83kk62.jpg')}}" style="float; width: 18%; height: 220px;margin-right: 1%; margin-bottom: .5em;" alt = "Iceland"/>
+    
+        <img src ="{{url_for('static', filename = 'wallhaven-nzlymy.jpg')}}" style="float; width: 18%; height: 220px; margin-right: 1%; margin-bottom: .5em;" alt = "Iceland"/>
+        
+        <img src ="{{url_for('static', filename = 'wallhaven-4lvrvr.jpg')}}" style="float; width: 18%; height: 220px;margin-right: 1%; margin-bottom: .5em;" alt = "Iceland"/>  
+    </div>
+       
+
+        <form method= "post" action = "/img" > 
+       
+<p> <input type = "submit" value = "Image" name = "Image"> </p>
+        </form>
+      
+
+         <img src = "{{url_for('static', filename = '{{image}}.jpg')}}" alt = "text" /> 
+       </div> 
+
+
+
+        
+          <p>
+            The previous should require no explaination
+            </p> 
+
+        <form  method = "post" action = "/lob">
+            
+            <p> <input type = "submit" value = "Logout" name = "Logout"> </p>
+            <div class = "red"><p>{{Denied}}</p></div>
+            
+        </form>
+        
+      
+          
+    </body>
+    
+</html>
+{% endblock %}
+    

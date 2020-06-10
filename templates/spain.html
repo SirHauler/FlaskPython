@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title%} Spain Page {% endblock%}
+
+{% block content %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel = "stylesheet" href="{{ url_for('static', filename = 'css/iceland1.css') }}">
+	<style> 
+	p{
+		text-align: center;
+		color: red;
+	}
+	h2{
+		text-align: center;
+	}
+	
+	.center{ 
+		margin-right: auto; 
+		margin-left: auto;
+
+	 }
+
+
+	</style>
+	
+</head>
+<body>
+	<h2> SPAIN!: For those that want to travel there!</h2>
+
+	<div class = "center">
+
+	<img src ="{{url_for('static', filename = 'spain1.jpg')}}", alt = "Spain1"/>
+
+	</div> 
+
+	<p> Test if this link will actually work!</p>
+	<p> Now that I know that this works it is time to style</p>
+
+</body>
+</html>
+
+{% endblock %}

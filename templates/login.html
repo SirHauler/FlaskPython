@@ -1,0 +1,36 @@
+
+
+{% extends "base.html" %}
+
+{% block title %} Login Page {% endblock %}
+
+
+
+
+{% block content%}
+
+{% with messages = get_flashed_messages()%}
+	{% if messages %}
+		{% for msg in messages %}
+		 <p>{{msg}}</p>
+		{% endfor %}
+	{% endif %}
+{% endwith %}
+<style>
+	p{
+		text-align: center;
+	}
+	.red {
+		color: red;
+	}
+</style>
+
+
+<form action="#" method = "post">
+	<p>Enter Name To Login In:</p>
+	<p> <input type = "text" name = "nm" /></p>
+	<p> <input type = "submit" value = "Submit" /></p>
+	<div class = "red"><p>{{Denied}}</p></div>
+	
+</form>
+{% endblock %}
